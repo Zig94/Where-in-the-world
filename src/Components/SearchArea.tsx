@@ -1,8 +1,6 @@
-const SearchArea = () => {
-	return (
-		<div className="search-area">
-			<input className="search-input" type="text" placeholder="Search for a country..." />
-		</div>
-	)
+import { ReactNode } from 'react'
+
+const SearchArea = ({ children }: { children: ReactNode }): JSX.Element => {
+	return <div className="search-area">{children}</div>
 }
 export default SearchArea

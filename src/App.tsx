@@ -8,7 +8,7 @@ function App() {
 	return (
 		<>
 			<Header isDarkMode={isDarkMode} onHandleChangeMode={handleChangeMode} />
-			<Main />
+			<Main isDarkMode={isDarkMode} />
 		</>
 	)
 }
