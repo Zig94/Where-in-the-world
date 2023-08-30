@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useFetchCountry = (search: { search: string }, key: { key: string }) => {
+const useFetchCountry = (search: string, key: string) => {
 	const [countries, setCountries] = useState<[]>([])
 
 	useEffect(
