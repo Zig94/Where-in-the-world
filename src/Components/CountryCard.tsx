@@ -1,14 +1,4 @@
-interface Country {
-	name: {
-		common: string
-	}
-	capital: string
-	flags: {
-		png: string
-	}
-	population: number
-	region: string
-}
+import Country from './CountryTypes'
 
 const CountryCard = ({ country, isDarkMode }: { country: Country; isDarkMode: boolean }) => {
 	const { capital, flags, name, population, region } = country

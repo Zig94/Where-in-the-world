@@ -1,4 +1,10 @@
-const SearchInput = ({ isDarkMode }: { isDarkMode: boolean }) => {
+interface Search {
+	isDarkMode: boolean
+	searchCountry: string
+	onHandleSearchInput: (value: string) => void
+}
+
+const SearchInput: React.FC<Search> = ({ isDarkMode, searchCountry, onHandleSearchInput }) => {
 	return (
 		<div className="input-box">
 			<label htmlFor="searchInput">
@@ -9,6 +15,8 @@ const SearchInput = ({ isDarkMode }: { isDarkMode: boolean }) => {
 				id="searchInput"
 				type="text"
 				placeholder="Search for a country..."
+				value={searchCountry}
+				onChange={e => onHandleSearchInput(e.target.value)}
 			/>
 		</div>
 	)
