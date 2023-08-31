@@ -8,10 +8,10 @@ const SearchInput: React.FC<Search> = ({ isDarkMode, searchCountry, onHandleSear
 	return (
 		<div className="input-box">
 			<label htmlFor="searchInput">
-				<i className={`fa-solid fa-magnifying-glass ${!isDarkMode && 'dark-mode'}`}></i>
+				<i className={`fa-solid fa-magnifying-glass ${isDarkMode && 'dark-mode'}`}></i>
 			</label>
 			<input
-				className={`search-input ${!isDarkMode && 'dark-mode'}`}
+				className={`search-input ${isDarkMode && 'dark-mode'}`}
 				id="searchInput"
 				type="text"
 				placeholder="Search for a country..."

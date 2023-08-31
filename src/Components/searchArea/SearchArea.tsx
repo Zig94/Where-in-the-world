@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
 const SearchArea = ({ children }: { children: ReactNode }): JSX.Element => {
-	return <div className="search-area">{children}</div>
+	return <section className="search-area">{children}</section>
 }
 export default SearchArea

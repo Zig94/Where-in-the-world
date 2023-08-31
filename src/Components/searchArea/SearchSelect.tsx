@@ -16,13 +16,13 @@ const SearchSelect: React.FC<Region> = ({
 	const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
 
 	return (
-		<div className={`drop ${!isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+		<div className={`drop ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
 			<button className="btn btn-drop" onClick={onHandleActiveButton}>
 				<span>{selectedRegion}</span>
 				<i className={`fa-solid ${!isRegionBtnActive ? 'fa-chevron-down' : 'fa-chevron-up'} `}></i>
 			</button>
 			{isRegionBtnActive && (
-				<ul className={`region-list ${!isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+				<ul className={`region-list ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
 					{regions.map(region => (
 						<li
 							key={region.toLowerCase()}

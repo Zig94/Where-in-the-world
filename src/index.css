@@ -233,7 +233,23 @@ body {
 .dark-mode-loader.loader::before {
 	border-color: var(--white);
 }
-
+.error {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+.error-face {
+	margin-top: 0.2em;
+	font-size: 10rem;
+}
+.error-text {
+	color: var(--text);
+	font-size: 2.5rem;
+	font-weight: 600;
+}
+.dark-mode-error {
+	color: var(--white);
+}
 .light-mode {
 	background-color: var(--white);
 	color: var(--text);

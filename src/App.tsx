@@ -1,7 +1,7 @@
 // import { useEffect, useState } from 'react'
-import Header from './Components/Header'
-import Main from './Components/Main'
-import useLightDarkMode from './Components/useLightDarkMode'
+import Header from './Components/header/Header'
+import Main from './Components/main/Main'
+import useLightDarkMode from './Components/customHook/useLightDarkMode'
 function App() {
 	const [isDarkMode, handleChangeMode] = useLightDarkMode()
 
