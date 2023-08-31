@@ -11,7 +11,6 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const [isRegionBtnActive, setIsRegionBtnActive] = useState(false)
 	const [selectedRegion, setSelectedRegion] = useState<string>('Filter by Region')
 	const [searchCountry, setSearchCountry] = useState<string>('')
-	// const [isLoading, setIsLoading] = useState(false)
 
 	const handleActiveButton = () => {
 		setIsRegionBtnActive(is => !is)
@@ -29,7 +28,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
 	const key = searchCountry !== '' ? 'name' : 'region'
 
-	const { countries } = useFetchCountry(fetching, key)
+	const { countries, isLoading } = useFetchCountry(fetching, key)
 	return (
 		<main className="main wrapper">
 			<SearchArea>
@@ -42,11 +41,17 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 					selectedRegion={selectedRegion}
 				/>
 			</SearchArea>
-			<CountyList>
-				{countries.map((country: Country) => (
-					<CountryCard country={country} isDarkMode={isDarkMode} key={country.capital} />
-				))}
-			</CountyList>
+			{!isLoading ? (
+				<CountyList className="countries-list">
+					{countries.map((country: Country) => (
+						<CountryCard country={country} isDarkMode={isDarkMode} key={country.capital} />
+					))}
+				</CountyList>
+			) : (
+				<CountyList className="loader-box">
+					<li className={`loader ${!isDarkMode && 'dark-mode-loader'}`}></li>
+				</CountyList>
+			)}
 		</main>
 	)
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 const useFetchCountry = (search: string, key: string) => {
 	const [countries, setCountries] = useState<[]>([])
+	const [isLoading, setIsLoading] = useState<boolean>(false)
 
 	useEffect(
 		function () {
@@ -16,6 +17,7 @@ const useFetchCountry = (search: string, key: string) => {
 					setCountries([])
 					return
 				}
+				setIsLoading(true)
 				try {
 					const res = await fetch(
 						`https://restcountries.com/v3.1/${key}/${search}?fields=name,capital,flags,region,population`,
@@ -25,6 +27,7 @@ const useFetchCountry = (search: string, key: string) => {
 
 					const data = await res.json()
 					setCountries(data)
+					setIsLoading(false)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') console.log((err as Error).message)
 				}
@@ -38,6 +41,6 @@ const useFetchCountry = (search: string, key: string) => {
 		},
 		[search, key]
 	)
-	return { countries }
+	return { countries, isLoading }
 }
 export default useFetchCountry

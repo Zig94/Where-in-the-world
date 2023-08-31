@@ -90,10 +90,12 @@ body {
 .search-input {
 	padding: 1em;
 	font-size: 1.6rem;
+	font-weight: 600;
 	border: 1px solid transparent;
 	border-radius: 8px;
 	width: 100%;
 	max-width: 500px;
+	text-align: center;
 	background-color: var(--white);
 	outline: 1px solid transparent;
 	color: var(--text);
@@ -206,15 +208,31 @@ body {
 	margin-left: 0.3em;
 	font-weight: 300;
 }
-
-/* .country-card {
-	position: relative;
-	z-index: 1;
+.loader-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.country-img {
+.loader {
+	margin-top: 2em;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
 	position: relative;
-	z-index: 1;
-} */
+	animation: rotate 1s linear infinite;
+	list-style: none;
+}
+.loader::before {
+	content: '';
+	position: absolute;
+	inset: 0px;
+	border-radius: 50%;
+	border: 5px solid var(--input);
+	animation: prixClipFix 2s linear infinite;
+}
+.dark-mode-loader.loader::before {
+	border-color: var(--white);
+}
 
 .light-mode {
 	background-color: var(--white);
@@ -229,6 +247,7 @@ body {
 	color: var(--white);
 	box-shadow: 0px 0px 13px 0px rgb(0, 0, 0, 0.1);
 }
+
 .fa-magnifying-glass .dark-mode {
 	background-color: transparent;
 }
@@ -244,5 +263,29 @@ body {
 @media (min-width: 992px) {
 	.title {
 		font-size: 2.8rem;
+	}
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes prixClipFix {
+	0% {
+		clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+	}
+	25% {
+		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+	}
+	50% {
+		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+	}
+	75% {
+		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+	}
+	100% {
+		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
 	}
 }
