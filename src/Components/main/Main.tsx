@@ -8,6 +8,7 @@ import Country from '../types/CountryTypes'
 import useFetchCountry from '../customHook/useFetchCountry'
 import Loader from './Loader'
 import ErrorMessage from './ErrorMessage'
+import CountryDetails from '../countryDetails/CountryDetails'
 
 const defautRegion = 'Search by region'
 
@@ -15,6 +16,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const [isRegionBtnActive, setIsRegionBtnActive] = useState(false)
 	const [selectedRegion, setSelectedRegion] = useState<string>(defautRegion)
 	const [searchCountry, setSearchCountry] = useState<string>('')
+	const [showDetails, setShowDetails] = useState(true)
 
 	const handleActiveButton = () => {
 		setIsRegionBtnActive(is => !is)
@@ -31,6 +33,9 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 		setSelectedRegion(defautRegion)
 		setIsRegionBtnActive(false)
 	}
+	const handleShowCountryDetails = () => {
+		setShowDetails(show => !show)
+	}
 
 	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
 	const key = searchCountry !== '' ? 'name' : 'region'
@@ -38,27 +43,38 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const { countries, isLoading, error } = useFetchCountry(fetching, key, defautRegion)
 	return (
 		<main className="main wrapper">
-			<SearchArea>
-				<SearchInput isDarkMode={isDarkMode} searchCountry={searchCountry} onHandleSearchInput={hadleSearchInput} />
-				<SearchSelect
-					isDarkMode={isDarkMode}
-					onHandleSelectedRegion={handleSelectedRegion}
-					onHandleActiveButton={handleActiveButton}
-					isRegionBtnActive={isRegionBtnActive}
-					selectedRegion={selectedRegion}
-				/>
-			</SearchArea>
-			<section className="countries-section">
-				{isLoading && <Loader isDarkMode={isDarkMode} />}
-				{!isLoading && !error && (
-					<CountyList>
-						{countries.map((country: Country) => (
-							<CountryCard country={country} isDarkMode={isDarkMode} key={country.capital} />
-						))}
-					</CountyList>
-				)}
-				{error && <ErrorMessage error={error} isDarkMode={isDarkMode} />}
-			</section>
+			{!showDetails ? (
+				<>
+					<SearchArea>
+						<SearchInput isDarkMode={isDarkMode} searchCountry={searchCountry} onHandleSearchInput={hadleSearchInput} />
+						<SearchSelect
+							isDarkMode={isDarkMode}
+							onHandleSelectedRegion={handleSelectedRegion}
+							onHandleActiveButton={handleActiveButton}
+							isRegionBtnActive={isRegionBtnActive}
+							selectedRegion={selectedRegion}
+						/>
+					</SearchArea>
+					<section className="countries-section">
+						{isLoading && <Loader isDarkMode={isDarkMode} />}
+						{!isLoading && !error && (
+							<CountyList>
+								{countries.map((country: Country) => (
+									<CountryCard
+										country={country}
+										isDarkMode={isDarkMode}
+										key={country.name.common}
+										onHandleShowDetails={handleShowCountryDetails}
+									/>
+								))}
+							</CountyList>
+						)}
+						{error && <ErrorMessage error={error} isDarkMode={isDarkMode} />}
+					</section>
+				</>
+			) : (
+				<CountryDetails />
+			)}
 		</main>
 	)
 }

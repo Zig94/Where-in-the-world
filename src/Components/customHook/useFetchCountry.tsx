@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 const useFetchCountry = (search: string, key: string, defaultRegion: string) => {
 	const [countries, setCountries] = useState<[]>([])
-	const [isLoading, setIsLoading] = useState<boolean>(false)
+	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState('')
 
 	useEffect(
@@ -10,7 +10,7 @@ const useFetchCountry = (search: string, key: string, defaultRegion: string) => 
 			const controller = new AbortController()
 
 			async function countriesFetch() {
-				if (search.length < 3) {
+				if (search.length < 1) {
 					setCountries([])
 					setError('')
 					return
