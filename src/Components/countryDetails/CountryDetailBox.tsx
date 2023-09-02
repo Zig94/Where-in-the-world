@@ -1,7 +1,10 @@
-const CountryDetailBox = () => {
+import { ReactNode } from 'react'
+
+const CountryDetailBox = ({ children }: { children: ReactNode }) => {
 	return (
-		<div className="details-country-info">
-			<h2 className="details-country-name">Belgium</h2>
+		<div className="details-country-box">
+			<h2 className="details-title">Belgium</h2>
+			{children}
 		</div>
 	)
 }

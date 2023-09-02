@@ -1,13 +1,18 @@
 import CountryDetailFlag from './CountryDetailFlag'
 import CountryDetailBox from './CountryDetailBox'
+import CountryDetailBorders from './CountryDetailBorders'
+import CountryDetailInfo from './CountryDetailInfo'
 
 const CountryDetails = () => {
 	return (
-		<section>
+		<section className="details-section">
 			<button className="btn brt-back">Back</button>
 			<div className="details-box">
 				<CountryDetailFlag />
-				<CountryDetailBox />
+				<CountryDetailBox>
+					<CountryDetailInfo />
+					<CountryDetailBorders />
+				</CountryDetailBox>
 			</div>
 		</section>
 	)

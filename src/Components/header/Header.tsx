@@ -9,8 +9,8 @@ const Header: React.FC<HeaderProps> = ({ onHandleChangeMode, isDarkMode }) => {
 			<div className="wrapper header-box">
 				<h1 className="title">Where in the world?</h1>
 				<button className="btn btn-mode" onClick={onHandleChangeMode}>
-					{!isDarkMode ? <i className="fa-regular fa-moon"></i> : <i className="fa-regular fa-sun"></i>}
-					{!isDarkMode ? 'Dark' : 'Light'} Mode
+					{isDarkMode ? <i className="fa-regular fa-moon"></i> : <i className="fa-regular fa-sun"></i>}
+					{isDarkMode ? 'Dark' : 'Light'} Mode
 				</button>
 			</div>
 		</header>

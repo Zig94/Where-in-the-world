@@ -253,6 +253,18 @@ body {
 .dark-mode-error {
 	color: var(--white);
 }
+.details-section {
+	padding: 3em 1.5em;
+}
+.details-img {
+	width: 100%;
+	height: 250px;
+}
+.details-title {
+	margin: 1em 0 0.8em;
+	font-size: 2.2rem;
+	font-weight: bold;
+}
 .light-mode {
 	background-color: var(--white);
 	color: var(--text);
