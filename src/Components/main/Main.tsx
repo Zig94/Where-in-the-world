@@ -9,9 +9,11 @@ import useFetchCountry from '../customHook/useFetchCountry'
 import Loader from './Loader'
 import ErrorMessage from './ErrorMessage'
 
+const defautRegion = 'Search by region'
+
 const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const [isRegionBtnActive, setIsRegionBtnActive] = useState(false)
-	const [selectedRegion, setSelectedRegion] = useState<string>('Search by Region')
+	const [selectedRegion, setSelectedRegion] = useState<string>(defautRegion)
 	const [searchCountry, setSearchCountry] = useState<string>('')
 
 	const handleActiveButton = () => {
@@ -26,13 +28,14 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	}
 	const hadleSearchInput = (value: string) => {
 		setSearchCountry(value)
-		setSelectedRegion('Search by Region')
+		setSelectedRegion(defautRegion)
+		setIsRegionBtnActive(false)
 	}
 
 	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
 	const key = searchCountry !== '' ? 'name' : 'region'
 
-	const { countries, isLoading, error } = useFetchCountry(fetching, key)
+	const { countries, isLoading, error } = useFetchCountry(fetching, key, defautRegion)
 	return (
 		<main className="main wrapper">
 			<SearchArea>

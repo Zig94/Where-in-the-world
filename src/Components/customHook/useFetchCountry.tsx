@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useFetchCountry = (search: string, key: string) => {
+const useFetchCountry = (search: string, key: string, defaultRegion: string) => {
 	const [countries, setCountries] = useState<[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [error, setError] = useState('')
@@ -15,7 +15,7 @@ const useFetchCountry = (search: string, key: string) => {
 					setError('')
 					return
 				}
-				if (search === 'Search by Region') {
+				if (search === defaultRegion) {
 					setCountries([])
 					return
 				}
@@ -44,7 +44,7 @@ const useFetchCountry = (search: string, key: string) => {
 				controller.abort()
 			}
 		},
-		[search, key]
+		[search, key, defaultRegion]
 	)
 	return { countries, isLoading, error }
 }
