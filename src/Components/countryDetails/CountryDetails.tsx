@@ -6,7 +6,7 @@ import CountryDetailInfo from './CountryDetailInfo'
 const CountryDetails = () => {
 	return (
 		<section className="details-section">
-			<button className="btn brt-back">Back</button>
+			<button className="btn btn-back">Back</button>
 			<div className="details-box">
 				<CountryDetailFlag />
 				<CountryDetailBox>
