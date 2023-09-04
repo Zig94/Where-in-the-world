@@ -12,6 +12,8 @@
 	--text: rgb(17, 21, 23);
 	--dark-bg: rgb(32, 44, 55);
 	--dark-el: rgb(43, 57, 69);
+	--shadow: rgb(195, 195, 204);
+	--border-color: rgba(0, 0, 0, 0.1);
 }
 html {
 	font-size: 62.5%;
@@ -57,15 +59,16 @@ body {
 	font-weight: 600;
 }
 .btn-mode {
-	padding: 1em;
+	padding: 0.6em;
+	margin-right: 0.4em;
 	font-size: 1.6rem;
 }
+
 .fa-regular {
 	margin-right: 0.5em;
 }
 .header {
 	height: 100px;
-	/* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
 }
 .header-box {
 	height: 100%;
@@ -99,7 +102,7 @@ body {
 	background-color: var(--white);
 	outline: 1px solid transparent;
 	color: var(--text);
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .search-input:focus {
 	text-align: center;
@@ -128,7 +131,7 @@ body {
 	width: 250px;
 	margin-top: 3em;
 	border-radius: 8px;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .btn-drop {
 	display: flex;
@@ -145,7 +148,7 @@ body {
 	list-style: none;
 	z-index: 10;
 	border-radius: 8px;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .list-item {
 	padding: 0.6em 1.5em;
@@ -156,7 +159,7 @@ body {
 }
 .list-item:hover,
 .list-item:active {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: var(--border-color);
 }
 .countries-section {
 	width: 100%;
@@ -171,15 +174,17 @@ body {
 	list-style: none;
 }
 .country-card {
+	transform: scale(1);
+	margin-bottom: 1.5em;
 	border: none;
 	border-radius: 8px;
 	max-width: 280px;
-	overflow: hidden;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
-	transform: scale(1);
+	height: 400px;
 	background-color: var(--bg);
-	transition: transform 0.3s;
+	box-shadow: 0px 0px 13px 0px var(--shadow);
+	overflow: hidden;
 	cursor: pointer;
+	transition: transform 0.3s;
 }
 .country-card:hover {
 	transform: scale(1.05);
@@ -250,6 +255,63 @@ body {
 .dark-mode-error {
 	color: var(--white);
 }
+.details-section {
+	padding: 3em 1.5em;
+}
+.btn-detail {
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+	box-shadow: 0px 0px 13px 0px var(--shadow);
+	transition: scale 0.3s;
+}
+.btn-detail:hover {
+	scale: 1.05;
+}
+.btn-back {
+	padding: 0.5em 1.5em;
+	margin-bottom: 3em;
+	font-size: 1.6rem;
+}
+.fa-arrow-left {
+	margin-right: 1em;
+}
+.details-img {
+	width: 100%;
+	height: 250px;
+}
+.details-title {
+	margin: 1.3em 0 1em;
+	font-size: 2.2rem;
+	font-weight: bold;
+}
+.info-one,
+.info-two {
+	margin-bottom: 2em;
+}
+.info-text {
+	padding: 0.3em 0;
+	font-weight: 600;
+}
+.info-text span {
+	margin-left: 0.5em;
+	font-weight: 300;
+}
+.border-text {
+	font-size: 1.8rem;
+	margin-bottom: 1em;
+}
+.borders-box {
+	font-weight: 600;
+}
+.border-btns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.2em;
+}
+.btn-border {
+	padding: 0.6em 1.2em;
+	font-weight: 300;
+}
 .light-mode {
 	background-color: var(--white);
 	color: var(--text);
@@ -261,11 +323,15 @@ body {
 .dark-mode {
 	background-color: var(--dark-el);
 	color: var(--white);
-	box-shadow: 0px 0px 13px 0px rgb(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 13px 0px rgb(29, 26, 26);
 }
 
-.fa-magnifying-glass .dark-mode {
+.dark-mode-box {
+	color: var(--white);
+}
+.fa-magnifying-glass.dark-mode {
 	background-color: transparent;
+	box-shadow: none;
 }
 
 @media (min-width: 768px) {
@@ -274,6 +340,9 @@ body {
 	}
 	.btn-mode {
 		font-size: 1.8rem;
+	}
+	.countries-list {
+		justify-content: space-between;
 	}
 }
 @media (min-width: 992px) {
