@@ -271,6 +271,21 @@ body {
 }
 .info-text {
 	padding: 0.3em 0;
+	font-weight: 600;
+}
+.info-text span {
+	margin-left: 0.5em;
+	font-weight: 300;
+}
+.borders-box {
+	display: flex;
+	font-weight: 600;
+}
+.btn-border {
+	padding: 0.5em;
+	border: 1px solid rgb(0, 0, 0, 0.1);
+	border-radius: 5px;
+	margin: 0.5em;
 }
 .light-mode {
 	background-color: var(--white);
