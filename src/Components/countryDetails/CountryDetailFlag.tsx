@@ -3,7 +3,7 @@ interface FlagDetails {
 	flagAlt: string
 }
 
-const CountryDetailFlag: React.FC<FlagDetails> = () => {
-	return <img src="dupa" alt="s" className="details-img" />
+const CountryDetailFlag: React.FC<FlagDetails> = ({ flagUrl, flagAlt }) => {
+	return <img src={flagUrl} alt={flagAlt} className="details-img" />
 }
 export default CountryDetailFlag

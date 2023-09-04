@@ -18,7 +18,10 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 	const [searchCountry, setSearchCountry] = useState<string>('')
 	const [showDetails, setShowDetails] = useState(false)
 	const [selectedCountry, setSelectedCountry] = useState('')
-	const [countryDetails, setCountryDetails] = useState([])
+	const [countryDetails, setCountryDetails] = useState({})
+
+	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
+	const key = searchCountry !== '' ? 'name' : 'region'
 
 	const handleActiveButton = () => {
 		setIsRegionBtnActive(is => !is)
@@ -39,15 +42,13 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 	const handleShowCountryDetails = () => {
 		setShowDetails(show => !show)
+		setSelectedCountry('')
 	}
 
 	const handleCountryDetails = (name: string) => {
-		setSelectedCountry(name)
-		handleShowCountryDetails()
+		setSelectedCountry(() => name)
+		console.log(countryDetails)
 	}
-
-	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
-	const key = searchCountry !== '' ? 'name' : 'region'
 
 	const { countries, isLoading, error, setIsLoading, setError } = useFetchCountry(fetching, key, defautRegion)
 
@@ -62,7 +63,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 				try {
 					const res = await fetch(
-						`https://restcountries.com/v3.1/name/${selectedCountry}?fields=name,capital,flags,region,population`,
+						`https://restcountries.com/v3.1/name/${selectedCountry}?fields=name,capital,flags,region,population,subregion,maps,languages,currencies`,
 						{
 							signal: controller.signal,
 						}
@@ -70,8 +71,8 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 					if (!res.ok) throw new Error('Country not found...')
 
 					const detailsData = await res.json()
-					setCountryDetails(detailsData)
-					console.log(detailsData)
+					setCountryDetails(detailsData[0])
+					setShowDetails(show => !show)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)
 				} finally {
@@ -123,7 +124,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 				<CountryDetails
 					isDarkMode={isDarkMode}
 					onHandleShowDetails={handleShowCountryDetails}
-					countryDetails={countryDetails[0]}
+					countryDetails={countryDetails}
 				/>
 			)}
 		</main>

@@ -15,7 +15,7 @@ const CountryCard: React.FC<CountryCard> = ({ country, isDarkMode, onHandleDetai
 			<div className="card-box">
 				<h2>{name.common}</h2>
 				<p className="card-info">
-					Populaion: <span>{population}</span>
+					Populaion: <span>{population.toLocaleString()}</span>
 				</p>
 				<p className="card-info">
 					Region: <span>{region}</span>

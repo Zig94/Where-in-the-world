@@ -6,13 +6,18 @@ import CountryDetailInfo from './CountryDetailInfo'
 interface CountryDetails {
 	name: {
 		common: string
+		official: string
 	}
 	capital: string
 	flags: {
 		png: string
 	}
-	population: number
+	population: string
 	region: string
+	subregion: string
+	maps: {
+		googleMaps: string
+	}
 }
 
 interface CountryDetails {
@@ -21,16 +26,26 @@ interface CountryDetails {
 	countryDetails: CountryDetails
 }
 
-const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDetails }) => {
+const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDetails, countryDetails }) => {
+	const { capital, flags, name, population, region, subregion, maps } = countryDetails
+
 	return (
 		<section className="details-section">
 			<button className={`btn btn-detail btn-back ${isDarkMode ? 'dark-mode' : ''}`} onClick={onHandleShowDetails}>
 				<i className="fa-solid fa-arrow-left"></i>Back
 			</button>
 			<div className={`details-box ${isDarkMode ? 'dark-mode-box' : ''}`}>
-				<CountryDetailFlag />
+				<CountryDetailFlag flagUrl={flags?.png} flagAlt={name?.common} />
 				<CountryDetailBox>
-					<CountryDetailInfo />
+					<CountryDetailInfo
+						capital={capital[0]}
+						population={population.toLocaleString()}
+						countryRegion={region}
+						countryName={name.common}
+						officialName={name.official}
+						subRegion={subregion}
+						location={maps.googleMaps}
+					/>
 					<CountryDetailBorders isDarkMode={isDarkMode} />
 				</CountryDetailBox>
 			</div>
