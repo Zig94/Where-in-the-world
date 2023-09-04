@@ -12,6 +12,8 @@
 	--text: rgb(17, 21, 23);
 	--dark-bg: rgb(32, 44, 55);
 	--dark-el: rgb(43, 57, 69);
+	--shadow: rgb(195, 195, 204);
+	--border-color: rgba(0, 0, 0, 0.1);
 }
 html {
 	font-size: 62.5%;
@@ -100,7 +102,7 @@ body {
 	background-color: var(--white);
 	outline: 1px solid transparent;
 	color: var(--text);
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .search-input:focus {
 	text-align: center;
@@ -129,7 +131,7 @@ body {
 	width: 250px;
 	margin-top: 3em;
 	border-radius: 8px;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .btn-drop {
 	display: flex;
@@ -146,7 +148,7 @@ body {
 	list-style: none;
 	z-index: 10;
 	border-radius: 8px;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .list-item {
 	padding: 0.6em 1.5em;
@@ -157,7 +159,7 @@ body {
 }
 .list-item:hover,
 .list-item:active {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: var(--border-color);
 }
 .countries-section {
 	width: 100%;
@@ -179,7 +181,7 @@ body {
 	max-width: 280px;
 	height: 400px;
 	background-color: var(--bg);
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	box-shadow: 0px 0px 13px 0px var(--shadow);
 	overflow: hidden;
 	cursor: pointer;
 	transition: transform 0.3s;
@@ -256,12 +258,22 @@ body {
 .details-section {
 	padding: 3em 1.5em;
 }
+.btn-detail {
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+	box-shadow: 0px 0px 13px 0px var(--shadow);
+	transition: scale 0.3s;
+}
+.btn-detail:hover {
+	scale: 1.05;
+}
 .btn-back {
-	border: 1px solid rgb(0, 0, 0, 0.1);
-	border-radius: 5px;
-	padding: 0.5em 1em;
+	padding: 0.5em 1.5em;
 	margin-bottom: 3em;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	font-size: 1.6rem;
+}
+.fa-arrow-left {
+	margin-right: 1em;
 }
 .details-img {
 	width: 100%;
@@ -284,16 +296,21 @@ body {
 	margin-left: 0.5em;
 	font-weight: 300;
 }
+.border-text {
+	font-size: 1.8rem;
+	margin-bottom: 1em;
+}
 .borders-box {
-	display: flex;
 	font-weight: 600;
 }
+.border-btns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.2em;
+}
 .btn-border {
-	padding: 0.5em;
-	border: 1px solid rgb(0, 0, 0, 0.1);
-	border-radius: 5px;
-	margin: 0.5em;
-	box-shadow: 0px 0px 13px 0px rgb(195, 195, 204);
+	padding: 0.6em 1.2em;
+	font-weight: 300;
 }
 .light-mode {
 	background-color: var(--white);
@@ -306,11 +323,15 @@ body {
 .dark-mode {
 	background-color: var(--dark-el);
 	color: var(--white);
-	box-shadow: 0px 0px 13px 0px rgb(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 13px 0px rgb(29, 26, 26);
 }
 
-.fa-magnifying-glass .dark-mode {
+.dark-mode-box {
+	color: var(--white);
+}
+.fa-magnifying-glass.dark-mode {
 	background-color: transparent;
+	box-shadow: none;
 }
 
 @media (min-width: 768px) {

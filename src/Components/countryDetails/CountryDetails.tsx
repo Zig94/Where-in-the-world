@@ -3,15 +3,21 @@ import CountryDetailBox from './CountryDetailBox'
 import CountryDetailBorders from './CountryDetailBorders'
 import CountryDetailInfo from './CountryDetailInfo'
 
-const CountryDetails = () => {
+interface CountryDetails {
+	isDarkMode: boolean
+}
+
+const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode }) => {
 	return (
 		<section className="details-section">
-			<button className="btn btn-back">Back</button>
-			<div className="details-box">
+			<button className={`btn btn-detail btn-back ${isDarkMode ? 'dark-mode' : ''}`}>
+				<i className="fa-solid fa-arrow-left"></i>Back
+			</button>
+			<div className={`details-box ${isDarkMode ? 'dark-mode-box' : ''}`}>
 				<CountryDetailFlag />
 				<CountryDetailBox>
 					<CountryDetailInfo />
-					<CountryDetailBorders />
+					<CountryDetailBorders isDarkMode={isDarkMode} />
 				</CountryDetailBox>
 			</div>
 		</section>

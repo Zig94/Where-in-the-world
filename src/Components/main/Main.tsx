@@ -16,7 +16,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 	const [isRegionBtnActive, setIsRegionBtnActive] = useState(false)
 	const [selectedRegion, setSelectedRegion] = useState<string>(defautRegion)
 	const [searchCountry, setSearchCountry] = useState<string>('')
-	const [showDetails, setShowDetails] = useState(true)
+	const [showDetails, setShowDetails] = useState(false)
 
 	const handleActiveButton = () => {
 		setIsRegionBtnActive(is => !is)
@@ -73,7 +73,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }): JSX.Element => {
 					</section>
 				</>
 			) : (
-				<CountryDetails />
+				<CountryDetails isDarkMode={isDarkMode} />
 			)}
 		</main>
 	)
