@@ -3,15 +3,15 @@ import Country from '../types/CountryTypes'
 interface CountryCard {
 	country: Country
 	isDarkMode: boolean
-	onHandleShowDetails: () => void
+	onHandleDetails: (name: string) => void
 }
 
-const CountryCard: React.FC<CountryCard> = ({ country, isDarkMode, onHandleShowDetails }) => {
+const CountryCard: React.FC<CountryCard> = ({ country, isDarkMode, onHandleDetails }) => {
 	const { capital, flags, name, population, region } = country
 
 	return (
-		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={onHandleShowDetails}>
-			<img src={flags.png} alt={`flag of ${name.common} `} className="country-img" />
+		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={() => onHandleDetails(name.common)}>
+			<img src={flags.png} alt={`Flag of ${name.common} `} className="country-img" />
 			<div className="card-box">
 				<h2>{name.common}</h2>
 				<p className="card-info">

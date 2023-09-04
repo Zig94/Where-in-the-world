@@ -4,13 +4,27 @@ import CountryDetailBorders from './CountryDetailBorders'
 import CountryDetailInfo from './CountryDetailInfo'
 
 interface CountryDetails {
-	isDarkMode: boolean
+	name: {
+		common: string
+	}
+	capital: string
+	flags: {
+		png: string
+	}
+	population: number
+	region: string
 }
 
-const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode }) => {
+interface CountryDetails {
+	isDarkMode: boolean
+	onHandleShowDetails: () => void
+	countryDetails: CountryDetails
+}
+
+const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDetails }) => {
 	return (
 		<section className="details-section">
-			<button className={`btn btn-detail btn-back ${isDarkMode ? 'dark-mode' : ''}`}>
+			<button className={`btn btn-detail btn-back ${isDarkMode ? 'dark-mode' : ''}`} onClick={onHandleShowDetails}>
 				<i className="fa-solid fa-arrow-left"></i>Back
 			</button>
 			<div className={`details-box ${isDarkMode ? 'dark-mode-box' : ''}`}>

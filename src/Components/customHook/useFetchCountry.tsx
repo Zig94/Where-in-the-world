@@ -46,6 +46,6 @@ const useFetchCountry = (search: string, key: string, defaultRegion: string) => 
 		},
 		[search, key, defaultRegion]
 	)
-	return { countries, isLoading, error }
+	return { countries, isLoading, error, setIsLoading, setError }
 }
 export default useFetchCountry
