@@ -1,11 +1,13 @@
 interface CountryDetails {
-	countryName: string
-	population: string
-	countryRegion: string
-	capital: string
-	officialName: string
-	subRegion: string
-	location: string
+	countryName?: string
+	population?: string
+	countryRegion?: string
+	capital?: string
+	officialName?: string
+	subRegion?: string
+	location?: string
+	currenciesName: string
+	languagesList: string
 }
 
 const CountryDetailInfo: React.FC<CountryDetails> = ({
@@ -16,6 +18,8 @@ const CountryDetailInfo: React.FC<CountryDetails> = ({
 	officialName,
 	subRegion,
 	location,
+	currenciesName,
+	languagesList,
 }) => {
 	return (
 		<>
@@ -38,21 +42,21 @@ const CountryDetailInfo: React.FC<CountryDetails> = ({
 						Capital: <span>{capital}</span>
 					</p>
 					<p className="info-text">
-						Link to map: <span>.be</span>
+						Location:
+						<a href={location} target="_blank" rel="noopener" className="map-link">
+							Go to map
+						</a>
 					</p>
 				</div>
 				<div className="info-two">
 					<p className="info-text">
-						Location:{' '}
-						<a href={location} target="_blank" rel="noopener">
-							see on map
-						</a>
+						Coś tutaj damy: <span>dupa</span>
 					</p>
 					<p className="info-text">
-						Currencies: <span>Euro</span>
+						Currencies: <span>{currenciesName}</span>
 					</p>
 					<p className="info-text">
-						Languages: <span>Dutch, French, German</span>
+						Languages: <span>{languagesList}</span>
 					</p>
 				</div>
 			</div>

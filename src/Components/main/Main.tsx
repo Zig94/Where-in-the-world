@@ -63,7 +63,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 				try {
 					const res = await fetch(
-						`https://restcountries.com/v3.1/name/${selectedCountry}?fields=name,capital,flags,region,population,subregion,maps,languages,currencies`,
+						`https://restcountries.com/v3.1/capital/${selectedCountry}?fields=name,capital,flags,region,population,subregion,maps,languages,currencies,borders`,
 						{
 							signal: controller.signal,
 						}
@@ -71,7 +71,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 					if (!res.ok) throw new Error('Country not found...')
 
 					const detailsData = await res.json()
-					setCountryDetails(detailsData[0])
+					setCountryDetails(detailsData.at(0))
 					setShowDetails(show => !show)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)
