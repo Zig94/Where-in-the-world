@@ -41,16 +41,13 @@ const CountryDetailInfo: React.FC<CountryDetails> = ({
 					<p className="info-text">
 						Capital: <span>{capital}</span>
 					</p>
+				</div>
+				<div className="info-two">
 					<p className="info-text">
 						Location:
 						<a href={location} target="_blank" rel="noopener" className="map-link">
 							Go to map
 						</a>
-					</p>
-				</div>
-				<div className="info-two">
-					<p className="info-text">
-						Coś tutaj damy: <span>dupa</span>
 					</p>
 					<p className="info-text">
 						Currencies: <span>{currenciesName}</span>
