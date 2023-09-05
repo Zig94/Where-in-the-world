@@ -3,12 +3,18 @@ import { useEffect, useState } from 'react'
 interface Borders {
 	isDarkMode: boolean
 	bordersList: string
-	capital: []
 	onHandleDetails: (name: string) => void
 }
 
+interface Border {
+	name: {
+		common?: string
+	}
+	capital?: string
+}
+
 const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHandleDetails }) => {
-	const [bordersData, setBordersData] = useState<object[]>([])
+	const [bordersData, setBordersData] = useState<Border[]>([])
 
 	useEffect(
 		function () {
@@ -23,7 +29,7 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHa
 					const countryData = await res.json()
 					setBordersData(countryData)
 				} catch (err) {
-					console.log(err.message)
+					console.log((err as Error).message)
 				}
 			}
 			fetchBordersData()
@@ -40,7 +46,7 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHa
 						<button
 							className={`btn btn-detail btn-border ${isDarkMode ? 'dark-mode' : ''}`}
 							key={border.capital}
-							onClick={() => onHandleDetails(border.capital)}>
+							onClick={() => onHandleDetails(border.capital || '')}>
 							{border.name?.common}
 						</button>
 					))}

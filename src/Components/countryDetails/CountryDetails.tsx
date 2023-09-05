@@ -18,18 +18,22 @@ interface Details {
 	maps?: {
 		googleMaps?: string
 	}
-	languages: object
-	currencies?: object
-	currenciesType: string
-	borders: string[]
+	languages?: object
+	currencies?: {
+		[key: string]: {
+			name: string
+		}
+	}
+	currenciesType?: string
+	borders?: string[]
 }
 
 interface CountryDetails {
 	isDarkMode: boolean
 	onHandleShowDetails: () => void
 	countryDetails: Details
-	languagesList: string
-	bordersList: string
+	languagesList?: string
+	bordersList?: string
 	onHandleDetails: (name: string) => void
 }
 
@@ -39,13 +43,24 @@ const CountryDetails: React.FC<CountryDetails> = ({
 	countryDetails,
 	onHandleDetails,
 }) => {
-	const { capital, flags, name, population, region, subregion, maps, currencies, languages, borders } = countryDetails
+	const {
+		capital,
+		flags,
+		name,
+		population,
+		region,
+		subregion,
+		maps,
+		currencies = {},
+		languages = {},
+		borders = [],
+	} = countryDetails
 
 	const currenciesType = currencies ? Object.keys(currencies)[0] : ''
 	const currenciesName: string = currencies[currenciesType]?.name
 
-	const languagesList = Object.values(languages).join(' , ')
-	const bordersList = borders.join(',')
+	const languagesList = Object.values(languages).join(' , ') || ''
+	const bordersList = borders.join(',') || ''
 
 	return (
 		<section className="details-section">
