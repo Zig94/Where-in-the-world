@@ -47,7 +47,6 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 	const handleCountryDetails = (name: string) => {
 		setSelectedCountry(() => name)
-		console.log(countryDetails)
 	}
 
 	const { countries, isLoading, error, setIsLoading, setError } = useFetchCountry(fetching, key, defautRegion)
@@ -72,7 +71,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 					const detailsData = await res.json()
 					setCountryDetails(detailsData.at(0))
-					setShowDetails(show => !show)
+					setShowDetails(true)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)
 				} finally {
@@ -125,6 +124,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 					isDarkMode={isDarkMode}
 					onHandleShowDetails={handleShowCountryDetails}
 					countryDetails={countryDetails}
+					onHandleDetails={handleCountryDetails}
 				/>
 			)}
 		</main>

@@ -30,9 +30,15 @@ interface CountryDetails {
 	countryDetails: Details
 	languagesList: string
 	bordersList: string
+	onHandleDetails: (name: string) => void
 }
 
-const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDetails, countryDetails }) => {
+const CountryDetails: React.FC<CountryDetails> = ({
+	isDarkMode,
+	onHandleShowDetails,
+	countryDetails,
+	onHandleDetails,
+}) => {
 	const { capital, flags, name, population, region, subregion, maps, currencies, languages, borders } = countryDetails
 
 	const currenciesType = currencies ? Object.keys(currencies)[0] : ''
@@ -40,7 +46,6 @@ const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDeta
 
 	const languagesList = Object.values(languages).join(' , ')
 	const bordersList = borders.join(',')
-	console.log(bordersList)
 
 	return (
 		<section className="details-section">
@@ -61,7 +66,7 @@ const CountryDetails: React.FC<CountryDetails> = ({ isDarkMode, onHandleShowDeta
 						currenciesName={currenciesName}
 						languagesList={languagesList}
 					/>
-					<CountryDetailBorders isDarkMode={isDarkMode} bordersList={bordersList} />
+					<CountryDetailBorders isDarkMode={isDarkMode} bordersList={bordersList} onHandleDetails={onHandleDetails} />
 				</CountryDetailBox>
 			</div>
 		</section>

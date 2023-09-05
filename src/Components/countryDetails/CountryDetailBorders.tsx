@@ -4,9 +4,10 @@ interface Borders {
 	isDarkMode: boolean
 	bordersList: string
 	capital: []
+	onHandleDetails: (name: string) => void
 }
 
-const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList }) => {
+const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHandleDetails }) => {
 	const [bordersData, setBordersData] = useState<object[]>([])
 
 	useEffect(
@@ -21,7 +22,6 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList }) =>
 
 					const countryData = await res.json()
 					setBordersData(countryData)
-					console.log(countryData)
 				} catch (err) {
 					console.log(err.message)
 				}
@@ -37,7 +37,10 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList }) =>
 			{bordersData.length > 0 ? (
 				<div className="border-btns">
 					{bordersData.map(border => (
-						<button className={`btn btn-detail btn-border ${isDarkMode ? 'dark-mode' : ''}`} key={border.capital[0]}>
+						<button
+							className={`btn btn-detail btn-border ${isDarkMode ? 'dark-mode' : ''}`}
+							key={border.capital}
+							onClick={() => onHandleDetails(border.capital)}>
 							{border.name?.common}
 						</button>
 					))}
