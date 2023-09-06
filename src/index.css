@@ -81,9 +81,9 @@ body {
 	font-weight: bold;
 	padding-left: 1em;
 }
-.main {
+/* .main {
 	min-height: 100vh;
-}
+} */
 .search-area {
 	padding: 2em 1em;
 }
@@ -167,7 +167,6 @@ body {
 }
 .countries-list {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 4em;
@@ -278,6 +277,7 @@ body {
 .details-img {
 	width: 100%;
 	height: 250px;
+	border-radius: 3px;
 	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .details-title {
@@ -308,7 +308,7 @@ body {
 }
 .border-text {
 	font-size: 1.6rem;
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 }
 .borders-box {
 	font-weight: 600;
@@ -344,6 +344,21 @@ body {
 	box-shadow: none;
 }
 
+@media (min-width: 640px) {
+	.details-box {
+		display: flex;
+		gap: 5em;
+	}
+	.details-img {
+		max-width: 360px;
+		height: 300px;
+		margin-top: 3em;
+	}
+	.details-country-box {
+		max-width: 400px;
+	}
+}
+
 @media (min-width: 768px) {
 	.title {
 		font-size: 2.2rem;
@@ -352,12 +367,73 @@ body {
 		font-size: 1.8rem;
 	}
 	.countries-list {
-		justify-content: space-between;
+		justify-content: space-around;
+	}
+	.details-box {
+		gap: 8em;
 	}
 }
 @media (min-width: 992px) {
 	.title {
 		font-size: 2.8rem;
+	}
+	.search-area {
+		display: flex;
+		justify-content: space-between;
+		margin: 3em 0;
+	}
+	.search-input {
+		width: 500px;
+	}
+	.drop {
+		margin-top: 0;
+	}
+	.btn-back {
+		margin-top: 3em;
+	}
+	.details-box {
+		justify-content: space-around;
+	}
+	.details-img {
+		max-width: 400px;
+		height: 350px;
+	}
+}
+@media (min-width: 1280px) {
+	.details-box {
+		align-items: center;
+		gap: 0;
+		justify-content: space-between;
+	}
+	.details-img {
+		max-width: 600px;
+		height: 460px;
+		/* object-fit: cover; */
+	}
+	.details-country-box {
+		margin-top: 1em;
+		max-width: 600px;
+	}
+	.details-info-box {
+		display: flex;
+		justify-content: space-between;
+	}
+	.borders-box {
+		display: flex;
+		gap: 2em;
+		margin-top: 1em;
+	}
+	.border-text {
+		min-width: fit-content;
+	}
+	.details-title {
+		font-size: 2.8rem;
+	}
+	.info-text {
+		font-size: 1.6rem;
+	}
+	.border-text {
+		font-size: 1.8rem;
 	}
 }
 

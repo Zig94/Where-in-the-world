@@ -10,7 +10,7 @@ const CountryCard: React.FC<CountryCard> = ({ country, isDarkMode, onHandleDetai
 	const { capital, flags, name, population, region } = country
 
 	return (
-		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={() => onHandleDetails(capital)}>
+		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={() => onHandleDetails(capital[0])}>
 			<img src={flags.png} alt={`Flag of ${name.common} `} className="country-img" />
 			<div className="card-box">
 				<h2>{name.common}</h2>
