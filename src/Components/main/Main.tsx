@@ -47,6 +47,9 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
 	const handleCountryDetails = (name: string) => {
 		setSelectedCountry(() => name)
+		if (window.innerWidth < 768) {
+			window.scrollTo({ top: 100, behavior: 'smooth' })
+		}
 	}
 
 	const { countries, isLoading, error, setIsLoading, setError } = useFetchCountry(fetching, key, defautRegion)
