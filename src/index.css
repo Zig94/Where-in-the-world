@@ -81,9 +81,9 @@ body {
 	font-weight: bold;
 	padding-left: 1em;
 }
-/* .main {
+.main {
 	min-height: 100vh;
-} */
+}
 .search-area {
 	padding: 2em 1em;
 }
@@ -322,11 +322,26 @@ body {
 	padding: 0.6em 1.2em;
 	font-weight: 300;
 }
+.footer-box-one {
+	margin-bottom: 1em;
+}
 .light-mode {
 	background-color: var(--white);
 	color: var(--text);
 }
-
+.footer {
+	padding: 1em;
+}
+.headquater {
+	font-size: 1.8rem;
+	font-weight: 600;
+	margin-bottom: 0.6em;
+}
+.footer-text {
+	padding: 0.1em 0;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.8);
+}
 .dark-mode-bg {
 	background-color: var(--dark-bg);
 }
@@ -338,6 +353,9 @@ body {
 
 .dark-mode-box {
 	color: var(--white);
+}
+.dar-mode-text {
+	color: rgba(225, 225, 225, 0.9);
 }
 .fa-magnifying-glass.dark-mode {
 	background-color: transparent;

@@ -16,7 +16,7 @@ const Footer: React.FC<Footer> = ({ isDarkMode }) => {
 	}, [])
 
 	return (
-		<footer className={`footer ${isDarkMode ? 'dark-mode-box' : ''}`}>
+		<footer className={`footer wrapper ${isDarkMode ? 'dark-mode-box' : ''}`}>
 			<div className="footer-box-one">
 				<CompanyAdress />
 				<CompanySocials />
