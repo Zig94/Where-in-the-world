@@ -7,7 +7,7 @@ interface Footer {
 	isDarkMode: boolean
 }
 
-const Footer = ({ isDarkMode }) => {
+const Footer: React.FC<Footer> = ({ isDarkMode }) => {
 	const [curYear, setCurYear] = useState('')
 
 	useEffect(function () {
