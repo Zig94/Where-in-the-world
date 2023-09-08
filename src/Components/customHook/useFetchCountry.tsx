@@ -31,6 +31,7 @@ const useFetchCountry = (search: string, key: string, defaultRegion: string) => 
 
 					const data = await res.json()
 					setCountries(data)
+					console.log(data)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)
 				} finally {

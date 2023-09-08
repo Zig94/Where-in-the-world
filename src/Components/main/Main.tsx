@@ -9,6 +9,7 @@ import useFetchCountry from '../customHook/useFetchCountry'
 import Loader from './Loader'
 import ErrorMessage from './ErrorMessage'
 import CountryDetails from '../countryDetails/CountryDetails'
+import Popup from './PopUp'
 
 const defautRegion = 'Search by region'
 
@@ -113,6 +114,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 						/>
 					</SearchArea>
 					<section className="countries-section">
+						<Popup isDarkMode={isDarkMode} />
 						{isLoading && <Loader isDarkMode={isDarkMode} />}
 						{!isLoading && !error && (
 							<CountyList>
