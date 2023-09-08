@@ -7,10 +7,10 @@ interface CountryCard {
 }
 
 const CountryCard: React.FC<CountryCard> = ({ country, isDarkMode, onHandleDetails }) => {
-	const { capital, flags, name, population, region } = country
+	const { capital, flags, name, population, region, cca3 } = country
 
 	return (
-		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={() => onHandleDetails(capital[0])}>
+		<li className={`country-card ${isDarkMode ? 'dark-mode' : ''}`} onClick={() => onHandleDetails(cca3)}>
 			<img src={flags.png} alt={`Flag of ${name.common} `} className="country-img" />
 			<div className="card-box">
 				<h2>{name.common}</h2>

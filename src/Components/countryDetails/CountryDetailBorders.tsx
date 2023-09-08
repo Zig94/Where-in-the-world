@@ -11,6 +11,7 @@ interface Border {
 		common?: string
 	}
 	capital?: string
+	cca3: string
 }
 
 const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHandleDetails }) => {
@@ -45,8 +46,8 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHa
 					{bordersData.map(border => (
 						<button
 							className={`btn btn-detail btn-border ${isDarkMode ? 'dark-mode' : ''}`}
-							key={border.capital}
-							onClick={() => onHandleDetails(border.capital || '')}>
+							key={border.cca3}
+							onClick={() => onHandleDetails(border.cca3 || '')}>
 							{border.name?.common}
 						</button>
 					))}

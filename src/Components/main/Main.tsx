@@ -73,7 +73,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 
 				try {
 					const res = await fetch(
-						`https://restcountries.com/v3.1/capital/${selectedCountry}?fields=name,capital,flags,region,population,subregion,maps,languages,currencies,borders`,
+						`https://restcountries.com/v3.1/alpha/${selectedCountry}?fields=name,capital,flags,region,population,subregion,maps,languages,currencies,borders,cca3`,
 						{
 							signal: controller.signal,
 						}
@@ -81,7 +81,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 					if (!res.ok) throw new Error('Country not found...')
 
 					const detailsData = await res.json()
-					setCountryDetails(detailsData.at(0))
+					setCountryDetails(detailsData)
 					setShowDetails(true)
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)

@@ -24,7 +24,7 @@ const useFetchCountry = (search: string, key: string, defaultRegion: string) => 
 
 				try {
 					const res = await fetch(
-						`https://restcountries.com/v3.1/${key}/${search}?fields=name,capital,flags,region,population`,
+						`https://restcountries.com/v3.1/${key}/${search}?fields=name,capital,flags,region,population,cca3`,
 						{ signal: controller.signal }
 					)
 					if (!res.ok) throw new Error('Country not found...')

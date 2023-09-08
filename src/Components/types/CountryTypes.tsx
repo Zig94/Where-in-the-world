@@ -8,5 +8,6 @@ interface Country {
 	}
 	population: number
 	region: string
+	cca3: string
 }
 export default Country
