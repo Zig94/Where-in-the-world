@@ -9,7 +9,7 @@ interface ContactLink {
 const ContactLink: React.FC<ContactLink> = ({ link, children, target }) => {
 	return (
 		<a href={link} target={target} rel="noopener" className="adress-link">
-			{children} <i className="fa-solid fa-chevron-right direction"></i>
+			{children} <i className="fa-solid fa-circle-chevron-right direction"></i>
 		</a>
 	)
 }

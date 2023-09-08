@@ -12,7 +12,12 @@ import CountryDetails from '../countryDetails/CountryDetails'
 
 const defautRegion = 'Search by region'
 
-const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
+interface Main {
+	isDarkMode: boolean
+	onHandleShowFooter: (arg: boolean) => void
+}
+
+const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 	const [isRegionBtnActive, setIsRegionBtnActive] = useState(false)
 	const [selectedRegion, setSelectedRegion] = useState<string>(defautRegion)
 	const [searchCountry, setSearchCountry] = useState<string>('')
@@ -43,10 +48,12 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 	const handleShowCountryDetails = () => {
 		setShowDetails(show => !show)
 		setSelectedCountry('')
+		onHandleShowFooter(true)
 	}
 
 	const handleCountryDetails = (name: string) => {
 		setSelectedCountry(() => name)
+		onHandleShowFooter(false)
 		if (window.innerWidth < 768) {
 			window.scrollTo({ top: 100, behavior: 'smooth' })
 		}
@@ -119,7 +126,7 @@ const Main = ({ isDarkMode }: { isDarkMode: boolean }) => {
 								))}
 							</CountyList>
 						)}
-						{error && <ErrorMessage error={error} isDarkMode={isDarkMode} />}
+						{error && searchCountry != '' && <ErrorMessage error={error} isDarkMode={isDarkMode} />}
 					</section>
 				</>
 			) : (

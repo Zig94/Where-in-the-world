@@ -5,7 +5,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onHandleChangeMode, isDarkMode }) => {
 	return (
-		<header className={`header ${!isDarkMode ? 'light-mode' : 'dark-mode'}`}>
+		<header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
 			<div className="wrapper header-box">
 				<h1 className="title">Where in the world?</h1>
 				<button className="btn btn-mode" onClick={onHandleChangeMode}>

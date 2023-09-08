@@ -1,7 +1,7 @@
 const CompanySocials = () => {
 	return (
 		<div className="socials">
-			<p className="join">Join Our Social Community</p>
+			<p className="social-title">Join Our Social Community</p>
 			<div className="socials-box">
 				<a href="#" className="socials-link">
 					<i className="fa-brands fa-facebook-f"></i>

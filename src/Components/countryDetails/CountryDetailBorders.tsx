@@ -52,7 +52,7 @@ const CountryDetailBorders: React.FC<Borders> = ({ isDarkMode, bordersList, onHa
 					))}
 				</div>
 			) : (
-				<p>The country has no borders with another country</p>
+				<p className="no-borders">This country does not share borders with any other country.</p>
 			)}
 		</div>
 	)
