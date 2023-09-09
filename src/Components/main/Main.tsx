@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import CountryCard from '../countries/CountryCard'
 import CountyList from '../countries/CountyList'
 import SearchArea from '../searchArea/SearchArea'
@@ -107,6 +107,18 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 		},
 		[selectedCountry, setCountryDetails, setError, setIsLoading]
 	)
+
+	useEffect(() => {
+		const handleClickOutsideRegionBtn = (e: MouseEvent) => {
+			if ((e.target as HTMLElement).classList.contains('btn-drop') || !isRegionBtnActive) return
+			setIsRegionBtnActive(false)
+		}
+		document.addEventListener('click', handleClickOutsideRegionBtn)
+
+		return function () {
+			document.removeEventListener('click', handleClickOutsideRegionBtn)
+		}
+	}, [isRegionBtnActive])
 
 	return (
 		<main className="main wrapper">
