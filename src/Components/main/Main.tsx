@@ -9,7 +9,8 @@ import useFetchCountry from '../customHook/useFetchCountry'
 import Loader from './Loader'
 import ErrorMessage from './ErrorMessage'
 import CountryDetails from '../countryDetails/CountryDetails'
-import Popup from './PopUp'
+import Popup from './Popup'
+import SearchInfo from './SearchInfo'
 
 const defautRegion = 'Search by region'
 
@@ -25,6 +26,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 	const [showDetails, setShowDetails] = useState(false)
 	const [selectedCountry, setSelectedCountry] = useState('')
 	const [countryDetails, setCountryDetails] = useState({})
+	const [showWelcome, SetShowWelcome] = useState(false)
 
 	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
 	const key = searchCountry !== '' ? 'name' : 'region'
@@ -60,7 +62,14 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 		}
 	}
 
-	const { countries, isLoading, error, setIsLoading, setError } = useFetchCountry(fetching, key, defautRegion)
+	const { countries, isLoading, error, setIsLoading, setError } = useFetchCountry(
+		fetching,
+		key,
+		defautRegion,
+		function () {
+			SetShowWelcome(false)
+		}
+	)
 
 	useEffect(
 		function () {
@@ -114,7 +123,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 						/>
 					</SearchArea>
 					<section className="countries-section">
-						<Popup isDarkMode={isDarkMode} />
+						{showWelcome ? <Popup isDarkMode={isDarkMode} /> : <SearchInfo isDarkMode={isDarkMode} />}
 						{isLoading && <Loader isDarkMode={isDarkMode} />}
 						{!isLoading && !error && (
 							<CountyList>
@@ -122,7 +131,7 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 									<CountryCard
 										country={country}
 										isDarkMode={isDarkMode}
-										key={country.name.common}
+										key={country.cca3}
 										onHandleDetails={handleCountryDetails}
 									/>
 								))}

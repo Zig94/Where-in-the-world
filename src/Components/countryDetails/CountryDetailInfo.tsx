@@ -46,7 +46,7 @@ const CountryDetailInfo: React.FC<CountryDetails> = ({
 					<p className="info-text">
 						Location:
 						<a href={location} target="_blank" rel="noopener" className="map-link">
-							Go to map
+							Show on map
 						</a>
 					</p>
 					<p className="info-text">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-const useFetchCountry = (search: string, key: string, defaultRegion: string) => {
-	const [countries, setCountries] = useState<[]>([])
+const useFetchCountry = (search: string, key: string, defaultRegion: string, action: () => void) => {
+	const [countries, setCountries] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState('')
 
@@ -31,7 +31,7 @@ const useFetchCountry = (search: string, key: string, defaultRegion: string) => 
 
 					const data = await res.json()
 					setCountries(data)
-					console.log(data)
+					action()
 				} catch (err) {
 					if ((err as Error).name !== 'AbortError') setError((err as Error).message)
 				} finally {
