@@ -18,8 +18,8 @@ const SearchSelect: React.FC<Region> = ({
 	return (
 		<div className={`drop ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
 			<button className="btn btn-drop" onClick={onHandleActiveButton}>
-				<span>{selectedRegion}</span>
-				<i className={`fa-solid ${!isRegionBtnActive ? 'fa-chevron-down' : 'fa-chevron-up'} `}></i>
+				<span className="no-click">{selectedRegion}</span>
+				<i className={`fa-solid no-click ${!isRegionBtnActive ? 'fa-chevron-down' : 'fa-chevron-up'} `}></i>
 			</button>
 			{isRegionBtnActive && (
 				<ul className={`region-list ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
