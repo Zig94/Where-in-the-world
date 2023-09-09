@@ -120,17 +120,17 @@ body {
 }
 .search-input {
 	padding: 1em;
+	width: 100%;
+	max-width: 500px;
+	text-align: center;
 	font-size: 1.6rem;
 	font-weight: 600;
 	border: 1px solid transparent;
 	border-radius: 8px;
-	width: 100%;
-	max-width: 500px;
-	text-align: center;
+	box-shadow: 0px 0px 13px 0px var(--shadow);
+	color: var(--text);
 	background-color: var(--white);
 	outline: 1px solid transparent;
-	color: var(--text);
-	box-shadow: 0px 0px 13px 0px var(--shadow);
 }
 .search-input:focus {
 	text-align: center;
