@@ -26,8 +26,8 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 	const [showDetails, setShowDetails] = useState(false)
 	const [selectedCountry, setSelectedCountry] = useState('')
 	const [countryDetails, setCountryDetails] = useState({})
-	const [showWelcome, SetShowWelcome] = useState(false)
-
+	const [showWelcome, SetShowWelcome] = useState(true)
+	const isNoElement = !searchCountry && selectedRegion == defautRegion && !showWelcome
 	const fetching = searchCountry !== '' ? searchCountry : selectedRegion
 	const key = searchCountry !== '' ? 'name' : 'region'
 
@@ -123,7 +123,8 @@ const Main: React.FC<Main> = ({ isDarkMode, onHandleShowFooter }) => {
 						/>
 					</SearchArea>
 					<section className="countries-section">
-						{showWelcome ? <Popup isDarkMode={isDarkMode} /> : <SearchInfo isDarkMode={isDarkMode} />}
+						{showWelcome && <Popup isDarkMode={isDarkMode} />}
+						{isNoElement && <SearchInfo isDarkMode={isDarkMode} />}
 						{isLoading && <Loader isDarkMode={isDarkMode} />}
 						{!isLoading && !error && (
 							<CountyList>
