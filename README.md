@@ -1,6 +1,7 @@
 # World Explorer
 
-World Explorer is an interactive application that allows users to explore different countries around the world. With this tool, you can easily search for countries by name or region.
+World Explorer is an interactive application that allows users to explore different countries around the world.
+With this tool, you can easily search for countries by name or region.
 
 Live demo [World Explorer](https://zig94.github.io/World-Explorer/).
 
@@ -17,10 +18,14 @@ Live demo [World Explorer](https://zig94.github.io/World-Explorer/).
 ## General Information
 
 The application displays the results in the form of cards containing basic information about the country, such as name, region, population and capital.
+
 When you click on a country card, it is possible to get more detailed information.
+
 The application also allows you to move between countries by clicking on a button with the name of a neighboring country.
 
-The main goal of the World Explorer project is to consolidate the knowledge gained so far and to assimilate the basic concepts related to React technology and TypeScript language. This project provides an opportunity to explore the capabilities of these technologies and gain practical experience in their application.
+The main goal of the World Explorer project is to consolidate the knowledge gained so far and to assimilate the basic concepts related to React technology and TypeScript language.
+
+This project provides an opportunity to explore the capabilities of these technologies and gain practical experience in their application.
 
 ## Technologies Used
 
@@ -42,9 +47,9 @@ The main goal of the World Explorer project is to consolidate the knowledge gain
 
 To run this project, you must have the following dependencies installed:
 
-Node.js and NPM (https://nodejs.org)
-Vite (https://vitejs.dev)
-Git (https://git-scm.com)
+- Node.js and NPM (https://nodejs.org)
+- Vite (https://vitejs.dev)
+- Git (https://git-scm.com)
 
 The project has no specific requirements for Node.js and NPM versions, but I recommend using the latest stable versions to avoid compatibility issues.
 
@@ -95,4 +100,4 @@ Currently, the World Explorer project is in the development stage and is still u
 
 ## Contact
 
-Created by [@Zig94](kontakt@maxprojects.pl) - feel free to contact me!
+Created by [@Max Szymański](https://github.com/Zig94) - feel free to contact me!
