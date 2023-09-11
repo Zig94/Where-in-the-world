@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import { qrcode } from 'vite-plugin-qrcode'
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/Where-in-the-world',
+	base: '/World-Explorer',
 	plugins: [react(), qrcode()],
 })
