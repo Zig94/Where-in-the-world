@@ -1,6 +1,7 @@
 # World Explorer
 
 World Explorer is an interactive application that allows users to explore different countries around the world.
+
 With this tool, you can easily search for countries by name or region.
 
 Live demo [World Explorer](https://zig94.github.io/World-Explorer/).
@@ -17,15 +18,15 @@ Live demo [World Explorer](https://zig94.github.io/World-Explorer/).
 
 ## General Information
 
-The application displays the results in the form of cards containing basic information about the country, such as name, region, population and capital.
+- The application displays the results in the form of cards containing basic information about the country, such as name, region, population and capital.
 
-When you click on a country card, it is possible to get more detailed information.
+- When you click on a country card, it is possible to get more detailed information.
 
-The application also allows you to move between countries by clicking on a button with the name of a neighboring country.
+- The application also allows you to move between countries by clicking on a button with the name of a neighboring country.
 
-The main goal of the World Explorer project is to consolidate the knowledge gained so far and to assimilate the basic concepts related to React technology and TypeScript language.
+- The main goal of the World Explorer project is to consolidate the knowledge gained so far and to assimilate the basic concepts related to React technology and TypeScript language.
 
-This project provides an opportunity to explore the capabilities of these technologies and gain practical experience in their application.
+- This project provides an opportunity to explore the capabilities of these technologies and gain practical experience in their application.
 
 ## Technologies Used
 
