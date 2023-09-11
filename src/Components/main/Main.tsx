@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import CountryCard from '../countries/CountryCard'
 import CountyList from '../countries/CountyList'
 import SearchArea from '../searchArea/SearchArea'
