@@ -4,7 +4,7 @@ World Explorer is an interactive application that allows users to explore differ
 
 With this tool, you can easily search for countries by name or region.
 
-Live demo: [World Explorer](https://zig94.github.io/World-Explorer/).
+Live demo: [World Explorer](https://maxszymanski.github.io/World-Explorer/).
 
 ## Table of Contents
 
@@ -30,13 +30,13 @@ Live demo: [World Explorer](https://zig94.github.io/World-Explorer/).
 
 ## Technologies Used
 
-- [![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white&link=https://github.com/Zig94/)](https://github.com/Zig94/)
+- [![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white&link=https://github.com/maxszymanski/)](https://github.com/maxszymanski/)
 
-- [![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&link=https://github.com/Zig94/)](https://github.com/Zig94/)
+- [![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&link=https://github.com/maxszymanski/)](https://github.com/maxszymanski/)
 
-- [![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)](https://github.com/Zig94/) version 18.2.0
+- [![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)](https://github.com/maxszymanski/) version 18.2.0
 
-- [![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&link=https://github.com/Zig94/)](https://github.com/Zig94/) version 5.1.6
+- [![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=typescript&link=https://github.com/maxszymanski/)](https://github.com/maxszymanski/) version 5.1.6
 
 ## Screenshots
 
@@ -66,7 +66,7 @@ After downloading the setup file, run it and follow the on-screen instructions.
 
 #### 2. Clone this repository using the Git command:
 
-`git clone https://github.com/Zig94/World-Explorer.git`
+`git clone https://github.com/maxszymanski/World-Explorer.git`
 
 #### 3. Navigate to the directory where you cloned the repository using the cd command.
 
@@ -103,4 +103,4 @@ As I learn more , I will continue to work on this application, adding new inform
 
 ## Contact
 
-Created by [@Max Szymański](https://github.com/Zig94) - feel free to contact me!
+Created by [@Max Szymański](https://github.com/maxszymanski) - feel free to contact me!
