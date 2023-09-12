@@ -90,16 +90,16 @@ As I learn more , I will continue to work on this application, adding new inform
 
 #### 1. Room for improvement:
 
-- Replacing the map link with an interactive map directly in the application, without having to leave the page.
-- Adding more country information
+- Replace the map link with an interactive map directly in the app, without having to leave the page.
+- Add more information about the country
 
 #### 2. To do:
 
-- Adding new search functions
+- Add new search functions
 - Sorting search results
 - Creating an account
-- User panel
-- Creating lists of favorite countries and countries to visit
+- Create user panel
+- Create lists of favorite countries and countries to visit
 
 ## Contact
 
