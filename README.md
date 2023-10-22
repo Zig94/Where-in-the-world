@@ -66,19 +66,27 @@ After downloading the setup file, run it and follow the on-screen instructions.
 
 #### 2. Clone this repository using the Git command:
 
-`git clone https://github.com/maxszymanski/World-Explorer.git`
+```sh
+git clone https://github.com/maxszymanski/World-Explorer.git
+```
 
 #### 3. Navigate to the directory where you cloned the repository using the cd command.
 
-`cd World-Explorer`
+```sh
+cd World-Explorer
+```
 
 #### 4. Install all NPM dependencies
 
-`npm install`
+```sh
+npm install
+```
 
 #### 5. Run the project:
 
-`npm run dev`
+```sh
+npm run dev
+```
 
 ## Project Status
 
